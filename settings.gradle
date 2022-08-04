@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "bar-android"
+include ':app'
+
+/*
+* Proyecto Bar La China
+* Integrantes:
+1. Rodríguez Ventura Sebastián
+2. Taza Cordero Oscar Leonardo
+3. Quispe Aguila Eduardo
+4. Taboada Aguirre Tatiana Nayelly
+5. Chipana Acuña Samuel Edgar
+*/
+
+// No copies, te encontraremos :)
