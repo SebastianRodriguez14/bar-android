@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity"
+    android:background="@drawable/hk_1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_width="525dp"
+            android:layout_height="1150dp"
+            android:src="@drawable/item_page1">
+         </ImageView>
+     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:text="Bar La China"
+        android:fontFamily="@font/font_1"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="40sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="475dp"
+        android:layout_marginStart="15dp"
+        android:text="Bar
+                           La China"
+        android:fontFamily="@font/font_1"
+        android:textColor="@color/white"
+        android:textSize="56sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="600dp"
+        android:text="Nuestra cervecería nacional
+                                   es sinónimo de sabor y tradición."
+        android:fontFamily="@font/font_2"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="666dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_vamos"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="Vamos"
+            android:textSize="25dp"
+            android:fontFamily="@font/font_2"
+            app:backgroundTint="@color/green_3"
+            android:drawableLeft="@drawable/vamos"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
