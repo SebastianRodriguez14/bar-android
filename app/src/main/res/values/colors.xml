@@ -12,4 +12,11 @@
     <color name="green_3">#CB97BF04</color>
     <color name="green_4">#022601</color>
     <color name="gray">#aeaeae</color>
+    <color name="trans">#54FFFFFF</color>
+    <color name="trans2">#BFFFFFFF</color>
+    <color name="trans3">#E6FFFFFF</color>
+    <color name="transB2">#CC0C0C0C</color>
+    <color name="transB3">#E6000000</color>
+    <color name="transparente">#00FFFFFF</color>
+    <color name="greenDarkMode1">#BBFF27</color>
 </resources>
