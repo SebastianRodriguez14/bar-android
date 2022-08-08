@@ -13,4 +13,22 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_night</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+    <style name="Forms" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/hk_night</item>
+        <item name="colorOnPrimary">@color/greenDarkMode1</item>
+        <item name="colorPrimaryVariant">@color/green_1</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/greenDarkMode1</item>
+        <item name="colorSecondaryVariant">@color/transB2</item>
+        <item name="colorOnSecondary">@color/transB3</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
 </resources>

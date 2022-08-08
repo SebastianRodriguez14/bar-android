@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/drawable/background_splashscreen.xml" value="0.1745" />
+        <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/drawable/gradien_background.xml" value="0.1455" />
+        <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/drawable/gradient_card.xml" value="0.35" />
         <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/drawable/my_border.xml" value="0.1" />
         <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/drawable/my_shadow.xml" value="0.2" />
-        <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/layout/activity_register.xml" value="0.5" />
+        <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/layout/activity_start.xml" value="0.36666666666666664" />
         <entry key="..\:/IDAT/Ciclo V/Proyecto Bar La China/Android/bar-android/app/src/main/res/layout/page_1.xml" value="0.22" />
       </map>
