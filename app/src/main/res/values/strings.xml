@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">bar-android</string>
+    <string name="empresa">Bar La China</string>
 </resources>
