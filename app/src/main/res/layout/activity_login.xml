@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-    </LinearLayout>>
+    </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,8 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="125dp"
-        android:text="Inicio de
-                       sesion"
+        android:text="Inicio de \nSesion"
         android:fontFamily="@font/font_2"
         android:theme="@style/Forms"
         android:textColor="?attr/colorOnPrimary"
