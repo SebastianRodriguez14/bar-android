@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         tools:targetApi="31">
         <activity
+            android:name=".DetailOrderActivity"
+            android:theme="@style/DetailOrder" />
+        <activity
             android:name=".MenuActivity"
             android:theme="@style/Forms" />
         <activity

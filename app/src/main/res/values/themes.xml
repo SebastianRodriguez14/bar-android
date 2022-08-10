@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.androi d.com/tools">
     <style name="SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_light</item>
         <item name="colorPrimaryVariant">@color/white</item>
@@ -7,7 +7,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
     <style name="Page1" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimaryVariant">@color/green_1</item>
+        <item name="colorPrimaryVariant">@color/green_2</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
@@ -21,5 +21,13 @@
         <item name="colorOnSecondary">@color/trans3</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+    <style name="DetailOrder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorPrimary">@color/green_5</item>
+        <item name="colorPrimaryVariant">@color/green_6</item>
+        <item name="colorOnPrimary">@color/green_7</item>
+        <item name="colorSecondary">#757575</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/green_2</item>
     </style>
 </resources>

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Barandroid" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Barandroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -13,7 +13,7 @@
     </style>
     <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_night</item>
-        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorSecondary">@color/black</item>
         <item name="android:colorBackground">@color/white</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -21,12 +21,21 @@
     <style name="Forms" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/hk_night</item>
         <item name="colorOnPrimary">@color/greenDarkMode1</item>
-        <item name="colorPrimaryVariant">@color/green_1</item>
+        <item name="colorPrimaryVariant">@color/green_2</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/greenDarkMode1</item>
         <item name="colorSecondaryVariant">@color/transB2</item>
         <item name="colorOnSecondary">@color/transB3</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="DetailOrder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorPrimary">@color/green_5_dark</item>
+        <item name="colorPrimaryVariant">@color/green_6_dark</item>
+        <item name="colorOnPrimary">@color/green_7</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/green_2</item>
     </style>
 </resources>
