@@ -7,6 +7,13 @@
     <color name="green_2">#618C03</color>
     <color name="green_3">#CB97BF04</color>
     <color name="green_4">#022601</color>
+    <color name="green_5">#023201 </color>
+    <color name="green_6">#7ca504</color>
+    <color name="green_5_dark">#D9FF85 </color>
+    <color name="green_6_dark">#BBFF27</color>
+    <color name="green_7">#ECFCAE</color>
+    <color name="green_8">#c9f1c8</color>
+
     <color name="gray">#aeaeae</color>
     <color name="trans">#54FFFFFF</color>
     <color name="trans2">#BFFFFFFF</color>

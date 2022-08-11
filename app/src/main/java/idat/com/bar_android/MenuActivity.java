@@ -11,7 +11,6 @@ public class MenuActivity extends AppCompatActivity {
 
     CardView cardViewAll,cardViewPend,cardViewPost,cardViewEntre,cardViewCanc;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
