@@ -26,4 +26,20 @@
     <color name="postergado">#FC692A</color>
     <color name="entregado">#50C154</color>
     <color name="cancelado">#F94545</color>
+    <color name="pendiente_night">#A6A8A3</color>
+    <color name="postergado_night">#B64D20</color>
+    <color name="entregado_night">#037000</color>
+    <color name="cancelado_night">#B21A1A</color>
+    <color name="card_pedidos">#EAFFBD</color>
+    <color name="card_pendiente">#EFF0EE</color>
+    <color name="card_postergado">#FFEDDF</color>
+    <color name="card_entregado">#BCDDB1</color>
+    <color name="card_cancelado">#FFD5D5</color>
+    <color name="cod_pedidos">#C0DD61</color>
+    <color name="cod_pendiente">#B0B2A9</color>
+    <color name="cod_postergado">#FDA655</color>
+    <color name="cod_entregado">#3B8203</color>
+    <color name="cod_cancelado">#FC5555</color>
+    <color name="btn_pedidos">#A9DF32</color>
+    <color name="fondo_night">#0A0A0A</color>
 </resources>
