@@ -24,10 +24,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:padding="6dp"
         >
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_todos"
+            android:id="@+id/list_pedidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

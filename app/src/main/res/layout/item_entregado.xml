@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="85dp"
     android:layout_marginTop="10dp"
-    android:padding="2dp">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:orientation="vertical"
         android:background="@drawable/gradient_entregado">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:orientation="horizontal">
             <androidx.cardview.widget.CardView
                 android:layout_width="55dp"
@@ -27,9 +29,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:padding="2dp"
                     android:text="N° 04"
                     android:textColor="@color/trans3"
                     android:textAlignment="center"
+                    android:fontFamily="@font/font_2"
                     android:textSize="15dp"
                     />
             </androidx.cardview.widget.CardView>
@@ -41,6 +45,7 @@
                 android:layout_marginLeft="2dp"
                 android:text="Tatiana Nayelly Taboada Aguirre"
                 android:textColor="@color/black"
+                android:fontFamily="@font/font_2"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
@@ -49,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="24/04/2022"
                 android:textAlignment="textEnd"
+                android:fontFamily="@font/font_2"
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 android:textStyle="bold" />
@@ -58,17 +64,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DNI: "
                 android:textColor="@color/black"
+                android:fontFamily="@font/font_2"
                 android:textSize="12dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="74951548"
+                android:fontFamily="@font/font_4"
                 android:textColor="@color/black"
                 android:textSize="12dp" />
         </LinearLayout>
@@ -77,17 +87,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DNI del encargado de recoger: "
+                android:fontFamily="@font/font_2"
                 android:textColor="@color/black"
                 android:textSize="12dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="74854123"
+                android:fontFamily="@font/font_4"
                 android:textColor="@color/black"
                 android:textSize="12dp" />
         </LinearLayout>
@@ -95,18 +109,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Costo Total: "
                 android:textColor="@color/black"
+                android:fontFamily="@font/font_2"
                 android:textSize="12dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="s/. 152.00"
                 android:textColor="@color/black"
+                android:fontFamily="@font/font_4"
                 android:textSize="12dp" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,11 +138,14 @@
                     android:layout_gravity="right"
                     app:cardCornerRadius="5dp">
                     <TextView
+                        android:id="@+id/btn_verdetalle"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
+                        android:padding="2dp"
                         android:textAlignment="center"
                         android:text="Ver Detalle"
                         android:textColor="@color/trans3"
+                        android:fontFamily="@font/font_2"
                         android:background="@drawable/gradient_btn"
                         android:textSize="15dp"
                         />

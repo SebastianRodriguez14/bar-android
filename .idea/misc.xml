@@ -22,9 +22,9 @@
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/drawable/gradient_pendiente.xml" value="0.1735" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/drawable/gradient_postergado.xml" value="0.1735" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.1015" />
-        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_all_order.xml" value="0.25" />
-        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_cancelado.xml" value="0.25" />
-        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_entregado.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_all_order.xml" value="0.33" />
+        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_cancelado.xml" value="0.2" />
+        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_entregado.xml" value="0.25" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_menu.xml" value="0.22" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_pendiente.xml" value="0.25" />
@@ -33,9 +33,9 @@
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/activity_start.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/footer.xml" value="0.22" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/header.xml" value="0.203125" />
-        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_cancelado.xml" value="0.203125" />
-        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_entregado.xml" value="0.203125" />
-        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_pendiente.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_cancelado.xml" value="0.25" />
+        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_entregado.xml" value="0.67" />
+        <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_pendiente.xml" value="0.33" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_postergado.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/item_todos.xml" value="0.33" />
         <entry key="..\:/Users/tatia/AndroidStudioProjects/bar-android/app/src/main/res/layout/pendiente_item.xml" value="0.25" />
