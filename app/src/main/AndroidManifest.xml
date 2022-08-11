@@ -16,8 +16,23 @@
             android:name=".DetailOrderActivity"
             android:theme="@style/DetailOrder" />
         <activity
+            android:name=".CanceladoActivity"
+            android:theme="@style/Pedidos" />
+        <activity
+            android:name=".EntregadoActivity"
+            android:theme="@style/Pedidos" />
+        <activity
+            android:name=".PostergadoActivity"
+            android:theme="@style/Pedidos" />
+        <activity
+            android:name=".PendienteActivity"
+            android:theme="@style/Pedidos" />
+        <activity
+            android:name=".AllOrderActivity"
+            android:theme="@style/Pedidos" />
+        <activity
             android:name=".MenuActivity"
-            android:theme="@style/Forms" />
+            android:theme="@style/Pedidos" />
         <activity
             android:name=".StartActivity"
             android:theme="@style/Page1" />
