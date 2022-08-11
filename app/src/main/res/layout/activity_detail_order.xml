@@ -40,7 +40,7 @@
                             android:text="Pedido N°01"
                             android:textColor="?attr/colorPrimary"
                             android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/font_2"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
                             android:text=" | "
                             android:textColor="?attr/colorPrimary"
                             android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/font_2"/>
 
                         <TextView
                             android:id="@+id/detalle_fecha_pedido"
@@ -57,7 +57,7 @@
                             android:text="16/07/22"
                             android:textColor="?attr/colorPrimary"
                             android:textSize="15dp"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/font_2"/>
                     </LinearLayout>
 
                     <androidx.cardview.widget.CardView
@@ -81,7 +81,7 @@
                             android:text="Total: S/. 1395.00"
                             android:textColor="@color/black"
                             android:textSize="18dp"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/font_2"/>
                     </androidx.cardview.widget.CardView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -91,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:theme="@style/DetailOrder"
+
                     tools:ignore="MissingConstraints">
 
                     <TextView
@@ -100,7 +101,7 @@
                         android:text="Valeria Rojas Cuadros"
                         android:textColor="?attr/colorPrimaryVariant"
                         android:textSize="22dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/font_2"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -108,7 +109,7 @@
                         android:text=" - "
                         android:textColor="?attr/colorPrimaryVariant"
                         android:textSize="22dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/font_2"/>
 
                     <TextView
                         android:id="@+id/detalle_dni_cliente"
@@ -117,7 +118,7 @@
                         android:text="75232656"
                         android:textColor="?attr/colorPrimaryVariant"
                         android:textSize="22dp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/font_2"/>
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
@@ -152,6 +153,7 @@
                                 android:textColor="?attr/colorSecondary"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
+                                android:fontFamily="@font/font_4"
                                 tools:ignore="MissingConstraints" />
 
                             <TextView
@@ -160,11 +162,12 @@
                                 android:layout_height="wrap_content"
                                 android:text="985147125"
                                 android:textColor="?attr/colorSecondary"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/font_2"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                tools:ignore="MissingConstraints" />
+                                tools:ignore="MissingConstraints"
+                                />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -179,10 +182,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Fecha de\nEntrega: "
+                                android:fontFamily="@font/font_4"
                                 android:textColor="?attr/colorSecondary"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                tools:ignore="MissingConstraints" />
+                                tools:ignore="MissingConstraints"/>
 
                             <TextView
                                 android:id="@+id/detalle_fecha_entrega"
@@ -190,7 +194,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="26/07/22"
                                 android:textColor="?attr/colorSecondary"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/font_2"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -212,6 +216,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Dni del\nencargado\nde recoger: "
                                 android:textColor="?attr/colorSecondary"
+                                android:fontFamily="@font/font_4"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 tools:ignore="MissingConstraints" />
@@ -222,7 +227,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="74895898"
                                 android:textColor="?attr/colorSecondary"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/font_2"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -242,6 +247,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Estado: "
+                                android:fontFamily="@font/font_4"
                                 android:textColor="?attr/colorSecondary"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -252,8 +258,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Pendiente"
+                                android:fontFamily="@font/font_2"
                                 android:textColor="?attr/colorSecondary"
-                                android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -274,6 +280,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Evidencia de\nEntrega"
+                                android:fontFamily="@font/font_4"
                                 android:textAlignment="center"
                                 android:textColor="?attr/colorSecondary" />
 
@@ -309,6 +316,7 @@
                                 android:paddingVertical="20dp"
                                 android:text="Editar\npedido"
                                 android:textColor="@color/white"
+                                android:fontFamily="@font/font_2"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
@@ -331,6 +339,7 @@
                         android:text="Productos"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="22dp"
+                        android:fontFamily="@font/font_2"
                         android:textStyle="bold" />
 
                 </LinearLayout>
