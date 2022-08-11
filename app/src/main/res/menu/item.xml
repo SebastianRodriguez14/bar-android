@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/icon_pend"
+        android:icon="@drawable/megaphone_green"
+        android:title="Pendiente"
+        />
+    <item
+        android:id="@+id/icon_pos"
+        android:icon="@drawable/refresh_green"
+        android:title="Postergado"
+
+        />
+    <item
+        android:id="@+id/icon_ent"
+        android:icon="@drawable/ic_baseline_check_24_green"
+        android:title="Entregado"
+        />
+    <item
+        android:id="@+id/icon_can"
+        android:icon="@drawable/ic_baseline_close_24_green"
+        android:title="Cancelar"
+        />
+</menu>
