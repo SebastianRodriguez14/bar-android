@@ -49,4 +49,12 @@
         <item name="colorSecondary">@color/white</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/green_2</item>
     </style>
+
+    <style name="UpdateOrderDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/background_update_order_dialog</item>
+        <item name="colorPrimary">@color/green_9</item>
+        <item name="colorPrimaryVariant">#444141</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="android:radius">25dp</item>
+    </style>
 </resources>
