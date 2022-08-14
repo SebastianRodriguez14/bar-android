@@ -3,6 +3,7 @@ package idat.com.bar_android;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -21,6 +22,7 @@ public class MenuActivity extends AppCompatActivity {
         cardViewPost = findViewById(R.id.CardPostergado);
         cardViewEntre = findViewById(R.id.CardEntregado);
         cardViewCanc = findViewById(R.id.CardCancelado);
+
 
         cardViewAll.setOnClickListener(new View.OnClickListener() {
             @Override
