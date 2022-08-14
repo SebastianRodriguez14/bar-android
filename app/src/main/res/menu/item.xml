@@ -15,6 +15,12 @@
         android:fontFamily="@font/font_2"
         />
     <item
+    android:id="@+id/icon_told"
+    android:icon="@drawable/ic_baseline_border_all_24"
+    android:title="Todos"
+    android:fontFamily="@font/font_2"
+    />
+    <item
         android:id="@+id/icon_ent"
         android:icon="@drawable/ic_baseline_check_24_green"
         android:title="Entregado"
