@@ -17,6 +17,7 @@ import java.util.Date;
 
 import idat.com.bar_android.R;
 import idat.com.bar_android.adapter.OrderItemAdapter;
+import idat.com.bar_android.models.ListOrdersModel;
 import idat.com.bar_android.models.OrderItemModel;
 import idat.com.bar_android.retrofit.RetrofitClient;
 import retrofit2.Call;
@@ -28,7 +29,6 @@ public class DeliveredOrderFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private OrderItemAdapter orderItemAdapter;
-    private ArrayList<OrderItemModel> orderItemModels = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,9 +39,9 @@ public class DeliveredOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_delivered_order, container, false);
-        fetchOrders();
+
         recyclerView = root.findViewById(R.id.list_pedidos_entregados);
-        orderItemAdapter = new OrderItemAdapter(orderItemModels, R.layout.item_entregado);
+        orderItemAdapter = new OrderItemAdapter(ListOrdersModel.getOrderItemModels(), R.layout.item_entregado);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
@@ -51,28 +51,7 @@ public class DeliveredOrderFragment extends Fragment {
         return root;
     }
 
-    private void fetchOrders(){
-        RetrofitClient.getRetrofitClient().getOrdersDelivered().enqueue(new Callback<ArrayList<OrderItemModel>>() {
-            @Override
-            public void onResponse(Call<ArrayList<OrderItemModel>> call, Response<ArrayList<OrderItemModel>> response) {
-                Log.i("info", "Recibimos respuesta :D");
 
-                ArrayList<OrderItemModel> test = response.body();
-
-                for (OrderItemModel o : test){
-                    System.out.println(o.toString());
-                }
-
-                orderItemModels.addAll(response.body());
-                orderItemAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<OrderItemModel>> call, Throwable t) {
-                Toast.makeText(getContext(), "Error, mátate", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 
 }

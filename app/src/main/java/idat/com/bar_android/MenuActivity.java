@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import idat.com.bar_android.add_functions.FunctionsFragments;
+import idat.com.bar_android.add_functions.ChosenFragments;
 import idat.com.bar_android.fragments.AllOrderFragment;
 import idat.com.bar_android.fragments.CancelledOrderFragment;
 import idat.com.bar_android.fragments.DeliveredOrderFragment;
@@ -32,25 +32,26 @@ public class MenuActivity extends AppCompatActivity {
         cardViewCanc = findViewById(R.id.CardCancelado);
 
 
-        cardViewAll.setOnClickListener(enterToFragmentOrders(new AllOrderFragment()));
+        cardViewAll.setOnClickListener(enterToFragmentOrders(new AllOrderFragment(), 1));
 
-        cardViewPend.setOnClickListener(enterToFragmentOrders(new PendingOrderFragment()));
+        cardViewPend.setOnClickListener(enterToFragmentOrders(new PendingOrderFragment(), 2));
 
-        cardViewPost.setOnClickListener(enterToFragmentOrders(new PostponedOrderFragment()));
+        cardViewPost.setOnClickListener(enterToFragmentOrders(new PostponedOrderFragment(), 3));
 
-        cardViewEntre.setOnClickListener(enterToFragmentOrders(new DeliveredOrderFragment()));
+        cardViewEntre.setOnClickListener(enterToFragmentOrders(new DeliveredOrderFragment(), 4));
 
-        cardViewCanc.setOnClickListener(enterToFragmentOrders(new CancelledOrderFragment()));
+        cardViewCanc.setOnClickListener(enterToFragmentOrders(new CancelledOrderFragment(), 5));
     }
 
-    private View.OnClickListener enterToFragmentOrders(Fragment fragment){
+    private View.OnClickListener enterToFragmentOrders(Fragment fragment, Integer id){
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(MenuActivity.this, OrdersOptionsActivity.class);
-                FunctionsFragments.setFragment(fragment);
+                ChosenFragments.setFragment(fragment);
+                ChosenFragments.setIndexFragment(id);
                 startActivity(intent);
                 finish();
 

@@ -7,18 +7,30 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import idat.com.bar_android.add_functions.FunctionsFragments;
+import java.util.ArrayList;
+
+import idat.com.bar_android.add_functions.ChosenFragments;
 import idat.com.bar_android.fragments.AllOrderFragment;
 import idat.com.bar_android.fragments.CancelledOrderFragment;
 import idat.com.bar_android.fragments.DeliveredOrderFragment;
+import idat.com.bar_android.fragments.LoaderFragment;
+import idat.com.bar_android.fragments.NotOrdersFragment;
 import idat.com.bar_android.fragments.PendingOrderFragment;
 import idat.com.bar_android.fragments.PostponedOrderFragment;
+import idat.com.bar_android.models.ListOrdersModel;
+import idat.com.bar_android.models.OrderItemModel;
+import idat.com.bar_android.retrofit.RetrofitClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OrdersOptionsActivity extends AppCompatActivity {
 
@@ -40,30 +52,35 @@ public class OrdersOptionsActivity extends AppCompatActivity {
         });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        loadFragment(FunctionsFragments.getFragment());
+        loadFragment(new LoaderFragment());
+        if (ChosenFragments.getIndexFragment() == 1){
+            fetchOrders(ChosenFragments.getFragment());
+        } else if (ChosenFragments.getIndexFragment() > 1){
+            fetchOrdersByState(ChosenFragments.getFragment(), String.valueOf(ChosenFragments.getIndexFragment()-1));
+        }
 
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            loadFragment(new LoaderFragment());
             switch (item.getItemId()){
                 case R.id.icon_told:
-                    loadFragment(new AllOrderFragment());
+                    fetchOrders(new AllOrderFragment());
                     return true;
                 case R.id.icon_can:
-                    loadFragment(new CancelledOrderFragment());
+                    fetchOrdersByState(new CancelledOrderFragment(), "4");
                     return true;
                 case R.id.icon_ent:
-                    loadFragment(new DeliveredOrderFragment());
+                    fetchOrdersByState(new DeliveredOrderFragment(), "3");
                     return true;
                 case R.id.icon_pend:
-                    loadFragment(new PendingOrderFragment());
+                    fetchOrdersByState(new PendingOrderFragment(), "1");
                     return true;
                 case R.id.icon_pos:
-                    loadFragment(new PostponedOrderFragment());
+                    fetchOrdersByState(new PostponedOrderFragment(), "2");
                     return true;
-
             }
             return false;
         }
@@ -73,6 +90,63 @@ public class OrdersOptionsActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame_container, fragment);
         fragmentTransaction.commit();
+    }
+
+    private void fetchOrdersByState(Fragment fragment, String id){
+        Log.i("id", "Soy el id de ordersByState: " + id);
+        RetrofitClient.getRetrofitClient().getOrdersByState(id).enqueue(new Callback<ArrayList<OrderItemModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<OrderItemModel>> call, Response<ArrayList<OrderItemModel>> response) {
+                Log.i("info", "Recibimos respuesta :D");
+
+                ArrayList<OrderItemModel> test = response.body();
+
+                for (OrderItemModel o : test){
+                    System.out.println(o.toString());
+                }
+                ListOrdersModel.setOrderItemModels(response.body());
+                if (response.body().size() != 0){
+                    loadFragment(fragment);
+                } else{
+                    Log.i("aviso", "No hay pedidos xd");
+                    loadFragment(new NotOrdersFragment());
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<OrderItemModel>> call, Throwable t) {
+                Log.e("error", "Error, mátate");
+            }
+        });
+    }
+
+    private void fetchOrders(Fragment fragment){
+        RetrofitClient.getRetrofitClient().getOrders().enqueue(new Callback<ArrayList<OrderItemModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<OrderItemModel>> call, Response<ArrayList<OrderItemModel>> response) {
+                Log.i("info", "Recibimos respuesta :D");
+
+                ArrayList<OrderItemModel> test = response.body();
+
+                for (OrderItemModel o : test){
+                    System.out.println(o.toString());
+                }
+
+                ListOrdersModel.setOrderItemModels(response.body());
+                if (response.body().size() != 0){
+                    loadFragment(fragment);
+                } else{
+                    loadFragment(new NotOrdersFragment());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<OrderItemModel>> call, Throwable t) {
+                Log.e("error", "Error, mátate");
+            }
+        });
     }
 
 
