@@ -33,7 +33,6 @@ public class DeliveredOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_delivered_order, container, false);
-        getData();
         recyclerView = root.findViewById(R.id.list_pedidos_entregados);
         orderItemAdapter = new OrderItemAdapter(orderItemModels, R.layout.item_entregado);
 
@@ -45,9 +44,5 @@ public class DeliveredOrderFragment extends Fragment {
         return root;
     }
 
-    public void getData(){
-        orderItemModels = new ArrayList<>();
 
-        orderItemModels.add(new OrderItemModel(400, "Eduardo Quispe", "45612378", "78945612", 3100.0, new Date()));
-    }
 }

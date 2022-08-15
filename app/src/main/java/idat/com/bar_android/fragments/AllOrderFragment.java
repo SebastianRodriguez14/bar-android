@@ -57,11 +57,6 @@ public class AllOrderFragment extends Fragment {
         return root;
     }
 
-    public void getData(){
-        orderItemModels = new ArrayList<>();
-
-        orderItemModels.add(new OrderItemModel(100, "Sebastián Rodríguez", "75684700", "74714521", 2500.0, new Date()));
-    }
 
     private void fetchOrders(){
         RetrofitClient.getRetrofitClient().getOrders().enqueue(new Callback<ArrayList<OrderItemModel>>() {
@@ -75,8 +70,8 @@ public class AllOrderFragment extends Fragment {
                     System.out.println(o.toString());
                 }
 
-                //orderItemModels.addAll(response.body());
-                //orderItemAdapter.notifyDataSetChanged();
+                orderItemModels.addAll(response.body());
+                orderItemAdapter.notifyDataSetChanged();
             }
 
             @Override

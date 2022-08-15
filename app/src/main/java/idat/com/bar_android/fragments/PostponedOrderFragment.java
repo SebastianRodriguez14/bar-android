@@ -32,7 +32,6 @@ public class PostponedOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_postponed_order, container, false);
-        getData();
         recyclerView = root.findViewById(R.id.list_pedidos_postergados);
         orderItemAdapter = new OrderItemAdapter(orderItemModels, R.layout.item_postergado);
 
@@ -44,9 +43,5 @@ public class PostponedOrderFragment extends Fragment {
         return root;
     }
 
-    public void getData(){
-        orderItemModels = new ArrayList<>();
 
-        orderItemModels.add(new OrderItemModel(500, "Samuel Chipana", "12457889", "56231245", 2580.0, new Date()));
-    }
 }

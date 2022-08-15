@@ -33,7 +33,6 @@ public class PendingOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_pending_order, container, false);
-        getData();
         recyclerView = root.findViewById(R.id.list_pedidos_pendientes);
         orderItemAdapter = new OrderItemAdapter(orderItemModels, R.layout.item_pendiente);
 
@@ -45,9 +44,5 @@ public class PendingOrderFragment extends Fragment {
         return root;
     }
 
-    public void getData(){
-        orderItemModels = new ArrayList<>();
 
-        orderItemModels.add(new OrderItemModel(200, "Tatiana Taboada", "78542144", "78589845", 3000.0, new Date()));
-    }
 }

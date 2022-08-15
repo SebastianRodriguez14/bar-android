@@ -32,7 +32,6 @@ public class CancelledOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_cancelled_order, container, false);
-        getData();
         recyclerView = root.findViewById(R.id.list_pedidos_cancelados);
         orderItemAdapter = new OrderItemAdapter(orderItemModels, R.layout.item_cancelado);
 
@@ -44,9 +43,5 @@ public class CancelledOrderFragment extends Fragment {
         return root;
     }
 
-    public void getData(){
-        orderItemModels = new ArrayList<>();
 
-        orderItemModels.add(new OrderItemModel(300, "Oscar Taza", "12345678", "98765432", 3650.0, new Date()));
-    }
 }

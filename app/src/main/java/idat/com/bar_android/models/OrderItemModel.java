@@ -4,20 +4,18 @@ import java.util.Date;
 
 public class OrderItemModel {
 
-    private Integer n_pedido;
-    private String nombre_cliente;
-    private String dni;
+    private Integer cod_pedido;
+    private ClientModel cliente;
     private String dni_recibidor;
-    private Double costo_total;
-    private Date fecha;
+    private Double precio_total;
+    private Date fecha_envio;
 
-    public OrderItemModel(Integer n_pedido, String nombre_cliente, String dni, String dni_recibidor, Double costo_total, Date fecha) {
-        this.n_pedido = n_pedido;
-        this.nombre_cliente = nombre_cliente;
-        this.dni = dni;
+    public OrderItemModel(Integer cod_pedido, ClientModel cliente, String dni_recibidor, Double precio_total, Date fecha_envio) {
+        this.cod_pedido = cod_pedido;
+        this.cliente = cliente;
         this.dni_recibidor = dni_recibidor;
-        this.costo_total = costo_total;
-        this.fecha = fecha;
+        this.precio_total = precio_total;
+        this.fecha_envio = fecha_envio;
     }
 
     public OrderItemModel() {
@@ -26,37 +24,28 @@ public class OrderItemModel {
     @Override
     public String toString() {
         return "OrderItemModel{" +
-                "n_pedido=" + n_pedido +
-                ", nombre_cliente='" + nombre_cliente + '\'' +
-                ", dni='" + dni + '\'' +
+                "cod_pedido=" + cod_pedido +
+                ", cliente=" + cliente.toString() +
                 ", dni_recibidor='" + dni_recibidor + '\'' +
-                ", costo_total=" + costo_total +
-                ", fecha=" + fecha +
+                ", precio_total=" + precio_total +
+                ", fecha_envio=" + fecha_envio +
                 '}';
     }
 
-    public Integer getN_pedido() {
-        return n_pedido;
+    public Integer getCod_pedido() {
+        return cod_pedido;
     }
 
-    public void setN_pedido(Integer n_pedido) {
-        this.n_pedido = n_pedido;
+    public void setCod_pedido(Integer cod_pedido) {
+        this.cod_pedido = cod_pedido;
     }
 
-    public String getNombre_cliente() {
-        return nombre_cliente;
+    public ClientModel getCliente() {
+        return cliente;
     }
 
-    public void setNombre_cliente(String nombre_cliente) {
-        this.nombre_cliente = nombre_cliente;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setCliente(ClientModel cliente) {
+        this.cliente = cliente;
     }
 
     public String getDni_recibidor() {
@@ -67,19 +56,19 @@ public class OrderItemModel {
         this.dni_recibidor = dni_recibidor;
     }
 
-    public Double getCosto_total() {
-        return costo_total;
+    public Double getPrecio_total() {
+        return precio_total;
     }
 
-    public void setCosto_total(Double costo_total) {
-        this.costo_total = costo_total;
+    public void setPrecio_total(Double precio_total) {
+        this.precio_total = precio_total;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Date getFecha_envio() {
+        return fecha_envio;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFecha_envio(Date fecha_envio) {
+        this.fecha_envio = fecha_envio;
     }
 }
