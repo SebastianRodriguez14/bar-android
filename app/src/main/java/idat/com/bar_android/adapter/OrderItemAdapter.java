@@ -14,26 +14,28 @@ import java.util.ArrayList;
 import idat.com.bar_android.R;
 import idat.com.bar_android.models.OrderItemModel;
 
-public class OrderItemAdapterTodos extends RecyclerView.Adapter<OrderItemAdapterTodos.ViewHolder> {
+public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.ViewHolder> {
 
     private ArrayList<OrderItemModel> pedidoItemModels;
+    private int layout;
 
-    public OrderItemAdapterTodos(ArrayList<OrderItemModel> pedidoItemModels) {
+    public OrderItemAdapter(ArrayList<OrderItemModel> pedidoItemModels, int layout) {
         this.pedidoItemModels = pedidoItemModels;
+        this.layout = layout;
     }
 
     @NonNull
     @Override
-    public OrderItemAdapterTodos.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public OrderItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_todos, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OrderItemAdapterTodos.ViewHolder holder, int position){
+    public void onBindViewHolder(@NonNull OrderItemAdapter.ViewHolder holder, int position){
         holder.n_pedido.setText(pedidoItemModels.get(position).getN_pedido().toString());
         holder.nombre_cliente.setText(pedidoItemModels.get(position).getNombre_cliente());
         holder.dni.setText(pedidoItemModels.get(position).getDni());

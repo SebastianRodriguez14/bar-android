@@ -23,6 +23,18 @@ public class OrderItemModel {
     public OrderItemModel() {
     }
 
+    @Override
+    public String toString() {
+        return "OrderItemModel{" +
+                "n_pedido=" + n_pedido +
+                ", nombre_cliente='" + nombre_cliente + '\'' +
+                ", dni='" + dni + '\'' +
+                ", dni_recibidor='" + dni_recibidor + '\'' +
+                ", costo_total=" + costo_total +
+                ", fecha=" + fecha +
+                '}';
+    }
+
     public Integer getN_pedido() {
         return n_pedido;
     }

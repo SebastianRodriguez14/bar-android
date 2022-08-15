@@ -6,22 +6,29 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
 import idat.com.bar_android.R;
-import idat.com.bar_android.adapter.OrderItemAdapterTodos;
+import idat.com.bar_android.adapter.OrderItemAdapter;
 import idat.com.bar_android.models.OrderItemModel;
+import idat.com.bar_android.retrofit.RetrofitClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AllOrderFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private OrderItemAdapterTodos pedidoItemAdapter;
-    private ArrayList<OrderItemModel> pedidoItemModels;
+    private OrderItemAdapter orderItemAdapter;
+    private ArrayList<OrderItemModel> orderItemModels = new ArrayList<>();
 
     public AllOrderFragment() {
         // Required empty public constructor
@@ -38,22 +45,45 @@ public class AllOrderFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_all_order, container, false);
-        getData();
+        fetchOrders();
         recyclerView = root.findViewById(R.id.list_pedidos);
-        pedidoItemAdapter = new OrderItemAdapterTodos(pedidoItemModels);
+        orderItemAdapter = new OrderItemAdapter(orderItemModels, R.layout.item_todos);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(pedidoItemAdapter);
+        recyclerView.setAdapter(orderItemAdapter);
 
         return root;
     }
 
     public void getData(){
-        pedidoItemModels = new ArrayList<>();
+        orderItemModels = new ArrayList<>();
 
-        pedidoItemModels.add(new OrderItemModel(100, "Sebastián Rodríguez", "75684700", "74714521", 2500.0, new Date()));
+        orderItemModels.add(new OrderItemModel(100, "Sebastián Rodríguez", "75684700", "74714521", 2500.0, new Date()));
+    }
+
+    private void fetchOrders(){
+        RetrofitClient.getRetrofitClient().getOrders().enqueue(new Callback<ArrayList<OrderItemModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<OrderItemModel>> call, Response<ArrayList<OrderItemModel>> response) {
+                Log.i("info", "Recibimos respuesta :D");
+
+                ArrayList<OrderItemModel> test = response.body();
+
+                for (OrderItemModel o : test){
+                    System.out.println(o.toString());
+                }
+
+                //orderItemModels.addAll(response.body());
+                //orderItemAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<OrderItemModel>> call, Throwable t) {
+                Toast.makeText(getContext(), "Error, mátate", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
