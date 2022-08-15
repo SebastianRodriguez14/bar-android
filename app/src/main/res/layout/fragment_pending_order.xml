@@ -22,7 +22,7 @@
         android:layout_marginTop="50dp"
         >
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_pedidos"
+            android:id="@+id/list_pedidos_pendientes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
