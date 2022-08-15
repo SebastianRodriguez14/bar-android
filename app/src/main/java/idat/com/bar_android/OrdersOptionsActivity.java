@@ -52,6 +52,7 @@ public class OrdersOptionsActivity extends AppCompatActivity {
         });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        setItemByDefault();
         loadFragment(new LoaderFragment());
         if (ChosenFragments.getIndexFragment() == 1){
             fetchOrders(ChosenFragments.getFragment());
@@ -86,7 +87,32 @@ public class OrdersOptionsActivity extends AppCompatActivity {
         }
     };
 
-    public void loadFragment(Fragment fragment){
+    private void setItemByDefault(){
+        int option = 0;
+        switch (ChosenFragments.getIndexFragment()){
+            case 1:
+                option = R.id.icon_told;
+                break;
+            case 2:
+                option = R.id.icon_pend;
+                break;
+            case 3:
+                option = R.id.icon_pos;
+                break;
+            case 4:
+                option = R.id.icon_ent;
+                break;
+            case 5:
+                option = R.id.icon_can;
+                break;
+        }
+        bottomNavigationView.setSelectedItemId(option);
+
+    }
+
+
+
+    private void loadFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame_container, fragment);
         fragmentTransaction.commit();

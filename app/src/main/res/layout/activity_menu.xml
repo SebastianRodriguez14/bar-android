@@ -197,8 +197,9 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:padding="18dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_baseline_close_24" />
+                    android:src="@drawable/close" />
 
                 <TextView
                     android:layout_width="match_parent"
