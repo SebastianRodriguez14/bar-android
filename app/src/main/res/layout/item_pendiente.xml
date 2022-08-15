@@ -27,6 +27,7 @@
                 android:backgroundTint="@color/cod_pendiente"
                 app:cardCornerRadius="8dp">
                 <TextView
+                    android:id="@+id/item_n_pedido"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="2dp"
@@ -40,6 +41,7 @@
 
 
             <TextView
+                android:id="@+id/item_nombre_cliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -50,6 +52,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/item_fecha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="24/04/2022"
@@ -75,6 +78,7 @@
                 android:fontFamily="@font/font_2"
                 android:textSize="12dp" />
             <TextView
+                android:id="@+id/item_dni"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="74951548"
@@ -98,6 +102,7 @@
                 android:textColor="@color/black"
                 android:textSize="12dp" />
             <TextView
+                android:id="@+id/item_dni_recibidor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="74854123"
@@ -120,6 +125,7 @@
                 android:fontFamily="@font/font_2"
                 android:textSize="12dp" />
             <TextView
+                android:id="@+id/item_costo_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="s/. 152.00"

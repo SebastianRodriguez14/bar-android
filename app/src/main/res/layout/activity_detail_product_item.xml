@@ -36,8 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_local_drink_24"
-                    />
+                    android:src="@drawable/ic_baseline_local_drink_24"/>
             </LinearLayout>
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"

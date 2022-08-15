@@ -6,10 +6,19 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+
+import idat.com.bar_android.add_functions.ChosenFragments;
+import idat.com.bar_android.fragments.AllOrderFragment;
+import idat.com.bar_android.fragments.CancelledOrderFragment;
+import idat.com.bar_android.fragments.DeliveredOrderFragment;
+import idat.com.bar_android.fragments.PendingOrderFragment;
+import idat.com.bar_android.fragments.PostponedOrderFragment;
 
 public class MenuActivity extends AppCompatActivity {
 
     CardView cardViewAll,cardViewPend,cardViewPost,cardViewEntre,cardViewCanc;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,50 +31,35 @@ public class MenuActivity extends AppCompatActivity {
         cardViewEntre = findViewById(R.id.CardEntregado);
         cardViewCanc = findViewById(R.id.CardCancelado);
 
-        cardViewAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,AllOrderActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
-        cardViewPend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,PendienteActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        cardViewAll.setOnClickListener(enterToFragmentOrders(new AllOrderFragment(), 1));
 
-        cardViewPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,PostergadoActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        cardViewPend.setOnClickListener(enterToFragmentOrders(new PendingOrderFragment(), 2));
 
-        cardViewEntre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,EntregadoActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        cardViewPost.setOnClickListener(enterToFragmentOrders(new PostponedOrderFragment(), 3));
 
-        cardViewCanc.setOnClickListener(new View.OnClickListener() {
+        cardViewEntre.setOnClickListener(enterToFragmentOrders(new DeliveredOrderFragment(), 4));
+
+        cardViewCanc.setOnClickListener(enterToFragmentOrders(new CancelledOrderFragment(), 5));
+    }
+
+    private View.OnClickListener enterToFragmentOrders(Fragment fragment, Integer id){
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,CanceladoActivity.class);
+
+                Intent intent = new Intent(MenuActivity.this, OrdersOptionsActivity.class);
+                ChosenFragments.setFragment(fragment);
+                ChosenFragments.setIndexFragment(id);
                 startActivity(intent);
                 finish();
+
             }
-        });
+        };
+
+        return onClickListener;
+
     }
 
 }

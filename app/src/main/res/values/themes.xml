@@ -29,7 +29,7 @@
         <item name="colorOnPrimary">@color/postergado</item>
         <item name="colorSecondary">@color/entregado</item>
         <item name="colorOnSecondary">@color/cancelado</item>
-        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorSecondaryVariant">#383838</item>
         <item name="background">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
