@@ -1,16 +1,14 @@
 package idat.com.bar_android;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import idat.com.bar_android.add_functions.ChosenFragment;
+import idat.com.bar_android.add_functions.FunctionsFragments;
 import idat.com.bar_android.fragments.AllOrderFragment;
 import idat.com.bar_android.fragments.CancelledOrderFragment;
 import idat.com.bar_android.fragments.DeliveredOrderFragment;
@@ -52,7 +50,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MenuActivity.this, OrdersOptionsActivity.class);
-                ChosenFragment.setFragment(fragment);
+                FunctionsFragments.setFragment(fragment);
                 startActivity(intent);
                 finish();
 

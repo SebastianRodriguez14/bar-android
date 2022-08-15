@@ -7,15 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import idat.com.bar_android.add_functions.ChosenFragment;
+import idat.com.bar_android.add_functions.FunctionsFragments;
 import idat.com.bar_android.fragments.AllOrderFragment;
 import idat.com.bar_android.fragments.CancelledOrderFragment;
 import idat.com.bar_android.fragments.DeliveredOrderFragment;
@@ -42,7 +40,7 @@ public class OrdersOptionsActivity extends AppCompatActivity {
         });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        loadFragment(ChosenFragment.getFragment());
+        loadFragment(FunctionsFragments.getFragment());
 
     }
 
@@ -71,11 +69,13 @@ public class OrdersOptionsActivity extends AppCompatActivity {
         }
     };
 
-
     public void loadFragment(Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, fragment);
-        transaction.commit();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame_container, fragment);
+        fragmentTransaction.commit();
     }
+
+
+
 
 }
