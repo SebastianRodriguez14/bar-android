@@ -15,5 +15,6 @@ public interface ApiInterface {
     @GET("pedido/estadox/{id}")
     Call<ArrayList<OrderItemModel>> getOrdersByState(@Path("id") String id);
 
-
+    @GET("pedido/buscar/{id}")
+    Call<ArrayList<OrderItemModel>> getOrderById(@Path("id") String id);
 }

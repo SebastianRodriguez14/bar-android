@@ -1,5 +1,6 @@
 package idat.com.bar_android.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import idat.com.bar_android.DetailOrderActivity;
+import idat.com.bar_android.MenuActivity;
 import idat.com.bar_android.R;
 import idat.com.bar_android.models.ClientModel;
 import idat.com.bar_android.models.OrderItemModel;
@@ -45,6 +48,14 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.View
         holder.dni_recibidor.setText(orderItem.getDni_recibidor());
         holder.fecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(orderItem.getFecha_envio()));
         holder.costo_total.setText(orderItem.getPrecio_total().toString());
+        holder.btn_detalle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), DetailOrderActivity.class);
+                intent.putExtra("cod_pedido", orderItem.getCod_pedido());
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -55,7 +66,7 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder
     {
 
-        TextView n_pedido, nombre_cliente, fecha, dni, dni_recibidor, costo_total;
+        TextView n_pedido, nombre_cliente, fecha, dni, dni_recibidor, costo_total, btn_detalle;
 
         public ViewHolder (@NonNull View itemView){
             super(itemView);
@@ -66,6 +77,8 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.View
             dni = itemView.findViewById(R.id.item_dni);
             dni_recibidor = itemView.findViewById(R.id.item_dni_recibidor);
             costo_total = itemView.findViewById(R.id.item_costo_total);
+            btn_detalle = itemView.findViewById(R.id.btn_verdetalle);
+
         }
     }
 
