@@ -12,4 +12,5 @@ public class ListProducts {
     public static void setProductModels(ArrayList<ProductModel> productModels) {
         ListProducts.productModels = productModels;
     }
+
 }

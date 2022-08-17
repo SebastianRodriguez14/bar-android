@@ -78,7 +78,6 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.View
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), DetailOrderActivity.class);
                     Codigo.setCodigo(n_pedido.getText().toString());
-                    Toast.makeText(v.getContext(), "Codigo: " + n_pedido.getText().toString(), Toast.LENGTH_SHORT).show();
                     v.getContext().startActivity(intent);
                 }
             });
