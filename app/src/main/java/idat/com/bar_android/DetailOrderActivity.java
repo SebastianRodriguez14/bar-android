@@ -1,14 +1,9 @@
 package idat.com.bar_android;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,15 +15,15 @@ import java.util.ArrayList;
 
 import idat.com.bar_android.adapter.ProductAdapter;
 import idat.com.bar_android.models.Codigo;
+import idat.com.bar_android.models.DetailModel;
+import idat.com.bar_android.models.ListDetailsOrders;
 import idat.com.bar_android.models.ListProducts;
-import idat.com.bar_android.models.OrderItemModel;
 import idat.com.bar_android.models.OrderModel;
 import idat.com.bar_android.models.ProductModel;
 import idat.com.bar_android.retrofit.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class DetailOrderActivity extends AppCompatActivity {
 
@@ -42,10 +37,12 @@ public class DetailOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_order);
-        fetchDatailOrder(Codigo.getCodigo());
+        fetchDetailOrder(Codigo.getCodigo());
+        fetchDetailProducts(Codigo.getCodigo());
 
         recyclerView = findViewById(R.id.detalle_lista_productos);
         productAdapter = new ProductAdapter(productModels);
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DetailOrderActivity.this);
         recyclerView.setLayoutManager(layoutManager);
@@ -73,7 +70,7 @@ public class DetailOrderActivity extends AppCompatActivity {
 
     }
 
-    public void fetchDatailOrder(String id) {
+    public void fetchDetailOrder(String id) {
         RetrofitClient.getRetrofitClient().getOrderById(id).enqueue(new Callback<ArrayList<OrderModel>>() {
             @Override
             public void onResponse(Call<ArrayList<OrderModel>> call, Response<ArrayList<OrderModel>> response) {
@@ -89,9 +86,9 @@ public class DetailOrderActivity extends AppCompatActivity {
                         dni_recibidor.setText(orderModel.getDni_recibidor());
                         fecha_envio.setText(new SimpleDateFormat("dd/MM/yy").format(orderModel.getFecha_envio()));
                         estado_pedido.setText(orderModel.getEstado().getNombre());
-                        ListProducts.setProductModels(orderModel.getProductos());
                         productModels.addAll(orderModel.getProductos());
                         productAdapter.notifyDataSetChanged();
+                        ListProducts.setProductModels(productModels);
 
                     }
                 }
@@ -104,5 +101,27 @@ public class DetailOrderActivity extends AppCompatActivity {
         });
     }
 
+    public void fetchDetailProducts(String id){
+        RetrofitClient.getRetrofitClient().getOrderDetails(id).enqueue(new Callback<ArrayList<DetailModel>>() {
+
+
+            @Override
+            public void onResponse(Call<ArrayList<DetailModel>> call, Response<ArrayList<DetailModel>> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<DetailModel> detailModels = response.body();
+                    Log.i("DETALLE", detailModels.toString());
+                    for(DetailModel detailModel : detailModels){
+                        System.out.println(detailModel.toString());
+                    }
+                    ListDetailsOrders.setDetailModels(detailModels);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<DetailModel>> call, Throwable t) {
+
+            }
+        });
+    }
 
 }

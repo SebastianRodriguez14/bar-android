@@ -2,6 +2,8 @@ package idat.com.bar_android.retrofit;
 
 import java.util.ArrayList;
 
+import idat.com.bar_android.models.DetailModel;
+import idat.com.bar_android.models.ListDetailsOrders;
 import idat.com.bar_android.models.OrderItemModel;
 import idat.com.bar_android.models.OrderModel;
 import retrofit2.Call;
@@ -19,4 +21,6 @@ public interface ApiInterface {
     @GET("pedido/buscar/{id}")
     Call<ArrayList<OrderModel>> getOrderById(@Path("id") String id);
 
+    @GET("detalle/order/{id}")
+    Call<ArrayList<DetailModel>> getOrderDetails(@Path("id") String id);
 }
