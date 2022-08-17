@@ -81,6 +81,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textField_Correo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="245dp"
@@ -92,6 +93,7 @@
             android:theme="@style/Forms" />
 
         <EditText
+            android:id="@+id/editText_Correo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
@@ -103,6 +105,7 @@
             android:textColor="@color/black" />
 
         <TextView
+            android:id="@+id/textField_Clave"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
@@ -114,6 +117,7 @@
             android:theme="@style/Forms" />
 
         <EditText
+            android:id="@+id/editText_Clave"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
