@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -34,8 +36,10 @@ import java.util.Locale;
 
 public class UpdateOrderDialogFragment extends DialogFragment {
 
-    ImageView closeButton;
+    ImageView closeButton, takePhotoButton, defaultPhoto;
+    Button  updateButton, cancelButton;
     TextInputEditText fecha_entrega, estado;
+    Uri imageUri;
     View root;
 
     public UpdateOrderDialogFragment() {
@@ -46,8 +50,12 @@ public class UpdateOrderDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
+
         LayoutInflater inflater = getActivity().getLayoutInflater();
         root = inflater.inflate(R.layout.fragment_update_order_dialog, null);
+        cancelButton = root.findViewById(R.id.update_order_button_cancel);
+
+
 
         eventCloseDialog();
 
