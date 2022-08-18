@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import idat.com.bar_android.db.DbUsers;
 
 public class LoginActivity extends AppCompatActivity {
-    //agregado--------------------
+    //-------------------
     EditText inputEmail, inputPassword;
 
     TextView textView;
@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //agregado----------
+        //----------
         inputEmail = findViewById(R.id.editText_Correo);
         inputPassword = findViewById(R.id.editText_Clave);
 
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
-                System.out.println(" DATOS DEL USUARIO");
+                System.out.println(" DATOS DEL USUARIO - LOGIN");
                 System.out.println("Correo: " + email);
                 System.out.println("Contraseña: " + password);
                 if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
@@ -55,20 +55,15 @@ public class LoginActivity extends AppCompatActivity {
                     DbUsers dbUsers = new DbUsers(LoginActivity.this);
                     boolean exists = dbUsers.isUserExists(email, password);
                     if (exists) {
-                        Toast.makeText(LoginActivity.this, "Usuario ya existente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Iniciando sesion...", Toast.LENGTH_SHORT).show();
+                        //accediendo al menu
+                        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                        startActivity(intent);
+                        finish();
                     } else {
-                        long id = dbUsers.insertUser(email, password);
-                        if (id > 0) {
-                            Toast.makeText(LoginActivity.this, "Usuario creado", Toast.LENGTH_SHORT).show();
-                            limpiarCampos();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Usuario no creado", Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(LoginActivity.this, "Usuario no registrado!", Toast.LENGTH_SHORT).show();
+                        limpiarCampos();
                     }
-
-                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                    startActivity(intent);
-                    finish();
                 }
             }
         });
