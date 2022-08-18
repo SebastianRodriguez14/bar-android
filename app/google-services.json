@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "135521331454",
+    "project_id": "bar-android",
+    "storage_bucket": "bar-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135521331454:android:47a9e544701f293cd51daf",
+        "android_client_info": {
+          "package_name": "idat.com.bar_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135521331454-67nu8o2ftj1q69odbc1rurtojd1k0rka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0SaI82SjXPD7x7qYc7yljN-EqDYVJlkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135521331454-67nu8o2ftj1q69odbc1rurtojd1k0rka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
