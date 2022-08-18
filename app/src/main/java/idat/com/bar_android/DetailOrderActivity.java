@@ -19,6 +19,7 @@ import idat.com.bar_android.models.DetailModel;
 import idat.com.bar_android.models.ListDetailsOrders;
 import idat.com.bar_android.models.ListProducts;
 import idat.com.bar_android.models.OrderModel;
+import idat.com.bar_android.models.OrderStaticDetils;
 import idat.com.bar_android.models.ProductModel;
 import idat.com.bar_android.retrofit.RetrofitClient;
 import retrofit2.Call;
@@ -77,6 +78,7 @@ public class DetailOrderActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     ArrayList<OrderModel> orderModels = response.body();
                     for(OrderModel orderModel : orderModels){
+                        OrderStaticDetils.setOrderModel(orderModel);
                         n_pedido.setText("Pedido N°" + orderModel.getCod_pedido().toString());
                         fecha_pedido.setText(new SimpleDateFormat("dd/MM/yy").format(orderModel.getFecha_solicitud()));
                         total_pedido.setText("Total: S/. " + orderModel.getPrecio_total().toString());
