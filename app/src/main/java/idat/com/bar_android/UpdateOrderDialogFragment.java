@@ -1,7 +1,6 @@
 package idat.com.bar_android;
 
 import static android.app.Activity.RESULT_OK;
-import static idat.com.bar_android.R.drawable.background_update_order_dialog;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -9,13 +8,9 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.icu.text.DateIntervalFormat;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,6 +22,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,16 +31,23 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
-import idat.com.bar_android.models.ListOrdersModel;
 import idat.com.bar_android.models.OrderStaticDetils;
+import idat.com.bar_android.models.PedidoUpdateModel;
+import idat.com.bar_android.models.StatusModel;
+import idat.com.bar_android.retrofit.RetrofitClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class UpdateOrderDialogFragment extends DialogFragment {
@@ -125,12 +128,68 @@ public class UpdateOrderDialogFragment extends DialogFragment {
     }
 
     public void saveUpdateOrder(){
+        telefono = root.findViewById(R.id.update_order_telefono);
+        dni = root.findViewById(R.id.update_order_dni_recoger);
+        fecha_entrega = root.findViewById(R.id.update_order_fecha_entrega);
+        estado = root.findViewById(R.id.update_order_estado);
+
+
         updateButton = root.findViewById(R.id.update_order_button_update);
+
+
+
+
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                updateOrder();
                 Intent intent = new Intent(getActivity(), OrdersOptionsActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    public int getStatusId(String status){
+        int id = 0;
+        switch (status){
+            case "Pendiente":
+                id = 1;
+                break;
+            case "Postergado":
+                id = 2;
+                break;
+            case "Entregado":
+                id = 3;
+                break;
+            case "Anulado":
+                id = 4;
+                break;
+        }
+        return id;
+    }
+
+    public void updateOrder(){
+        PedidoUpdateModel pedidoUpdateModel = new PedidoUpdateModel();
+        pedidoUpdateModel.setCodigo(OrderStaticDetils.getOrderModel().getCod_pedido().longValue());
+        pedidoUpdateModel.setDni(dni.getText().toString());
+        //pedidoUpdateModel.setFecha(new Date(System.currentTimeMillis()));  ;
+        pedidoUpdateModel.setTelefono(telefono.getText().toString());
+        pedidoUpdateModel.setEstado(new StatusModel(getStatusId(estado.getText().toString()), estado.getText().toString()));
+        RetrofitClient.getRetrofitClient().updateOrder(pedidoUpdateModel).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(getActivity(), "Pedido actualizado", Toast.LENGTH_SHORT).show();
+                    Log.i("UpdateOrder", "Pedido actualizado");
+                }else{
+                    Toast.makeText(getActivity(), "Error al actualizar el pedido", Toast.LENGTH_SHORT).show();
+                    Log.i("UpdateOrder", "Error al actualizar el pedido on Response");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.i("Error", t.getMessage());
             }
         });
     }
@@ -194,10 +253,6 @@ public class UpdateOrderDialogFragment extends DialogFragment {
         startActivityForResult(cameraIntent, CAPTURE_CODE);
     }
 
-
-    // Para mostrar los campos llenos
-    public void setDefaultValues(){
-    }
 
     // Método para trabajar el calendario al darle clic en fecha entrega
     public void showCalendarInDateOrder(){
