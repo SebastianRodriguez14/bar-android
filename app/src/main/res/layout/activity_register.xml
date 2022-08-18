@@ -18,7 +18,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
         android:orientation="vertical"
-        >
+        tools:ignore="MissingConstraints">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -78,8 +78,9 @@
         android:orientation="vertical"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        >
+        tools:ignore="MissingConstraints">
         <TextView
+            android:id="@+id/textField_Correo_R"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Correo"
@@ -91,6 +92,7 @@
             android:layout_marginTop="250dp"
             />
         <EditText
+            android:id="@+id/editText_Correo_R"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="Correo Electronico"
@@ -111,6 +113,7 @@
 
             />
         <TextView
+            android:id="@+id/textField_Clave_R"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Contraseña"
@@ -123,6 +126,7 @@
             />
 
         <EditText
+            android:id="@+id/editText_Clave_R"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="5dp"
@@ -143,6 +147,7 @@
             android:layout_marginTop="75dp">
 
             <Button
+                android:id="@+id/btnMenu_R"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:backgroundTint="@color/green_2"
