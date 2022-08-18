@@ -36,11 +36,12 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
+import idat.com.bar_android.models.OrderModel;
 import idat.com.bar_android.models.OrderStaticDetils;
 import idat.com.bar_android.models.PedidoUpdateModel;
 import idat.com.bar_android.models.StatusModel;
@@ -135,10 +136,6 @@ public class UpdateOrderDialogFragment extends DialogFragment {
 
 
         updateButton = root.findViewById(R.id.update_order_button_update);
-
-
-
-
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,16 +165,26 @@ public class UpdateOrderDialogFragment extends DialogFragment {
         return id;
     }
 
+    //String format to date format(yyyy-MM-dd)
+    public String formatDate(String date){
+        String[] dateArray = date.split("/");
+        String newDate = ("20"+dateArray[2]) + "-" + dateArray[1] + "-" + dateArray[0];
+        return newDate;
+    }
+
     public void updateOrder(){
         PedidoUpdateModel pedidoUpdateModel = new PedidoUpdateModel();
         pedidoUpdateModel.setCodigo(OrderStaticDetils.getOrderModel().getCod_pedido().longValue());
         pedidoUpdateModel.setDni(dni.getText().toString());
-        //pedidoUpdateModel.setFecha(new Date(System.currentTimeMillis()));  ;
+        pedidoUpdateModel.setFecha(formatDate(fecha_entrega.getText().toString()));
         pedidoUpdateModel.setTelefono(telefono.getText().toString());
         pedidoUpdateModel.setEstado(new StatusModel(getStatusId(estado.getText().toString()), estado.getText().toString()));
-        RetrofitClient.getRetrofitClient().updateOrder(pedidoUpdateModel).enqueue(new Callback<Void>() {
+
+        Log.i( "TMR",pedidoUpdateModel.getFecha());
+        RetrofitClient.getRetrofitClient().updateOrder1(pedidoUpdateModel).enqueue(new Callback<OrderModel>() {
+
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+            public void onResponse(Call<OrderModel> call, Response<OrderModel> response) {
                 if(response.isSuccessful()){
                     Toast.makeText(getActivity(), "Pedido actualizado", Toast.LENGTH_SHORT).show();
                     Log.i("UpdateOrder", "Pedido actualizado");
@@ -188,8 +195,8 @@ public class UpdateOrderDialogFragment extends DialogFragment {
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Log.i("Error", t.getMessage());
+            public void onFailure(Call<OrderModel> call, Throwable t) {
+
             }
         });
     }
@@ -197,7 +204,11 @@ public class UpdateOrderDialogFragment extends DialogFragment {
 
 
     public void cancelUpdateOrder(){
+
+
+
         cancelButton = root.findViewById(R.id.update_order_button_cancel);
+
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

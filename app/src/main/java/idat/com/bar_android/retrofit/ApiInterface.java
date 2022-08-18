@@ -29,4 +29,7 @@ public interface ApiInterface {
 
     @PUT("pedido/actualizarp2")
     Call<Void> updateOrder(@Body PedidoUpdateModel pedidoUpdateModel);
+
+    @PUT("pedido/actualizarp")
+    Call<OrderModel> updateOrder1(@Body PedidoUpdateModel pedidoUpdateModel);
 }
