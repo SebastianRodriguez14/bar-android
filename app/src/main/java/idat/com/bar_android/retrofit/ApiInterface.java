@@ -8,6 +8,7 @@ import idat.com.bar_android.models.OrderItemModel;
 import idat.com.bar_android.models.OrderModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
@@ -23,4 +24,7 @@ public interface ApiInterface {
 
     @GET("detalle/order/{id}")
     Call<ArrayList<DetailModel>> getOrderDetails(@Path("id") String id);
+
+    @PUT("pedido/actualizar/{id}")
+    Call<OrderModel> updateOrder(@Path("id") String id, OrderModel order);
 }

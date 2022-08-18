@@ -256,8 +256,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:gravity="center"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    >
                     <Button
                         android:id="@+id/update_order_button_cancel"
                         android:layout_width="wrap_content"
@@ -265,10 +267,10 @@
                         android:layout_marginRight="8dp"
                         android:layout_marginLeft="8dp"
                         android:text="Cancelar"
-                        android:textColor="?attr/colorSecondary"
+                        android:textColor="#FFFFFF"
                         android:textSize="16dp"
                         android:fontFamily="@font/font_2"
-                        android:backgroundTint="?colorPrimaryVariant"
+                        android:backgroundTint="#E02020"
                         android:layout_gravity="center"
                         />
                     <Button
@@ -277,11 +279,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
                         android:layout_marginLeft="8dp"
-                        android:text="Actualizar"
-                        android:textColor="?attr/colorSecondary"
+                        android:text="Guardar"
+                        android:textColor="#FFFFFF"
                         android:textSize="16dp"
                         android:fontFamily="@font/font_2"
-                        android:backgroundTint="?colorPrimaryVariant"
+                        android:backgroundTint="#97BF04"
                         android:layout_gravity="center"
                         />
                     >
