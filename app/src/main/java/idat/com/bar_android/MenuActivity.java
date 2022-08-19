@@ -2,7 +2,9 @@ package idat.com.bar_android;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -18,7 +20,7 @@ import idat.com.bar_android.fragments.PostponedOrderFragment;
 public class MenuActivity extends AppCompatActivity {
 
     CardView cardViewAll,cardViewPend,cardViewPost,cardViewEntre,cardViewCanc;
-
+    ImageView homeImageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,8 @@ public class MenuActivity extends AppCompatActivity {
         cardViewPost = findViewById(R.id.CardPostergado);
         cardViewEntre = findViewById(R.id.CardEntregado);
         cardViewCanc = findViewById(R.id.CardCancelado);
-
+        homeImageButton = findViewById(R.id.home_button);
+        homeImageButton.setBackgroundResource(R.drawable.ic_baseline_logout_24);
 
         cardViewAll.setOnClickListener(enterToFragmentOrders(new AllOrderFragment(), 1));
 
@@ -41,6 +44,15 @@ public class MenuActivity extends AppCompatActivity {
         cardViewEntre.setOnClickListener(enterToFragmentOrders(new DeliveredOrderFragment(), 4));
 
         cardViewCanc.setOnClickListener(enterToFragmentOrders(new CancelledOrderFragment(), 5));
+
+        homeImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, LoginActivity.class));
+            }
+        });
+
+
     }
 
     private View.OnClickListener enterToFragmentOrders(Fragment fragment, Integer id){
