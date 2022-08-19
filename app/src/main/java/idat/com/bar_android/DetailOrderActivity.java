@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import idat.com.bar_android.adapter.ProductAdapter;
+import idat.com.bar_android.add_functions.FunctionsActivities;
 import idat.com.bar_android.models.Codigo;
 import idat.com.bar_android.models.DetailModel;
 import idat.com.bar_android.models.ListDetailsOrders;
@@ -41,7 +42,7 @@ public class DetailOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_order);
-        fetchDetailOrder(Codigo.getCodigo());
+
         fetchDetailProducts(Codigo.getCodigo());
 
         recyclerView = findViewById(R.id.detalle_lista_productos);
@@ -89,12 +90,11 @@ public class DetailOrderActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<OrderModel>> call, Response<ArrayList<OrderModel>> response) {
                 if (response.isSuccessful()) {
-                    ArrayList<OrderModel> orderModels = response.body();
-                    for(OrderModel orderModel : orderModels){
+                    OrderModel orderModel = response.body().get(0);
                         OrderStaticDetils.setOrderModel(orderModel);
                         n_pedido.setText("Pedido N°" + orderModel.getCod_pedido().toString());
                         fecha_pedido.setText(new SimpleDateFormat("dd/MM/yy").format(orderModel.getFecha_solicitud()));
-                        total_pedido.setText("Total: S/. " + orderModel.getPrecio_total().toString());
+                        total_pedido.setText("Total: S/. " + FunctionsActivities.roundNumber(orderModel.getPrecio_total()).toString());
                         nombre_cliente.setText(orderModel.getCliente().getNombre() + " " + orderModel.getCliente().getApPaterno());
                         dni_cliente.setText(orderModel.getCliente().getDni());
                         telefono_cliente.setText(orderModel.getCliente().getTelefono());
@@ -105,7 +105,6 @@ public class DetailOrderActivity extends AppCompatActivity {
                         productAdapter.notifyDataSetChanged();
                         ListProducts.setProductModels(productModels);
 
-                    }
                 }
             }
 
@@ -129,6 +128,7 @@ public class DetailOrderActivity extends AppCompatActivity {
                         System.out.println(detailModel.toString());
                     }
                     ListDetailsOrders.setDetailModels(detailModels);
+                    fetchDetailOrder(Codigo.getCodigo());
                 }
             }
 

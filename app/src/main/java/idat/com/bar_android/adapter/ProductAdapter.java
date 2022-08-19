@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import idat.com.bar_android.DetailOrderActivity;
 import idat.com.bar_android.R;
+import idat.com.bar_android.add_functions.FunctionsActivities;
 import idat.com.bar_android.models.Codigo;
 import idat.com.bar_android.models.ListDetailsOrders;
 import idat.com.bar_android.models.ListProducts;
@@ -43,9 +44,9 @@ public class ProductAdapter extends  RecyclerView.Adapter<ProductAdapter.ViewHol
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int cantidad = ListDetailsOrders.getDetailModels().get(position).getCantidad();
         holder.producto_nomrbre.setText(productModels.get(position).getDescripcion());
-        holder.producto_precio.setText(productModels.get(position).getPrecio().toString());
+        holder.producto_precio.setText(FunctionsActivities.roundNumber(productModels.get(position).getPrecio()).toString());
         holder.producto_cantidad.setText(String.valueOf(cantidad));
-        holder.producto_total.setText(String.valueOf(productModels.get(position).getPrecio() * cantidad));
+        holder.producto_total.setText(String.valueOf(FunctionsActivities.roundNumber(productModels.get(position).getPrecio() * cantidad)));
         Glide.with(holder.itemView.getContext()).load(productModels.get(position).getImagen()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.producto_imagen);
     }
 

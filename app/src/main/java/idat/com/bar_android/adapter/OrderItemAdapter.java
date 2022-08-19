@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import idat.com.bar_android.DetailOrderActivity;
 import idat.com.bar_android.MenuActivity;
 import idat.com.bar_android.R;
+import idat.com.bar_android.add_functions.FunctionsActivities;
 import idat.com.bar_android.models.ClientModel;
 import idat.com.bar_android.models.Codigo;
 import idat.com.bar_android.models.OrderItemModel;
@@ -49,7 +50,7 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.View
         holder.dni.setText(orderItem.getCliente().getDni());
         holder.dni_recibidor.setText(orderItem.getDni_recibidor());
         holder.fecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(orderItem.getFecha_envio()));
-        holder.costo_total.setText(orderItem.getPrecio_total().toString());
+        holder.costo_total.setText(FunctionsActivities.roundNumber(orderItem.getPrecio_total()).toString());
 
     }
 
