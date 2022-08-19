@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -29,6 +31,7 @@ import retrofit2.Response;
 public class DetailOrderActivity extends AppCompatActivity {
 
     TextView n_pedido, fecha_pedido, total_pedido, nombre_cliente, dni_cliente, telefono_cliente, dni_recibidor, fecha_envio, estado_pedido ;
+    ImageView homeImageButton;
     Button buttonEditarPedido;
     private RecyclerView recyclerView;
     private ProductAdapter productAdapter;
@@ -58,6 +61,7 @@ public class DetailOrderActivity extends AppCompatActivity {
         dni_recibidor = findViewById(R.id.detalle_dni_recoger);
         fecha_envio = findViewById(R.id.detalle_fecha_entrega);
         estado_pedido = findViewById(R.id.detalle_estado);
+        homeImageButton = findViewById(R.id.home_button);
 
         buttonEditarPedido = findViewById(R.id.detalle_button_editar_pedido);
         buttonEditarPedido.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +70,15 @@ public class DetailOrderActivity extends AppCompatActivity {
                 UpdateOrderDialogFragment updateOrderDialogFragment = new UpdateOrderDialogFragment();
                 updateOrderDialogFragment.show(getSupportFragmentManager(), "UpdateOrderDialog");
 
+            }
+        });
+
+
+
+        homeImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DetailOrderActivity.this, OrdersOptionsActivity.class));
             }
         });
 
