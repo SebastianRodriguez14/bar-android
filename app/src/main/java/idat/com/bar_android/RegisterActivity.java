@@ -59,7 +59,11 @@ public class RegisterActivity extends AppCompatActivity {
                 System.out.println("Contraseña: " + password);
                 if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
                     Toast.makeText(RegisterActivity.this, "Complete los campos!!!", Toast.LENGTH_SHORT).show();
-                } else {
+                }  else if (!email.endsWith("@gmail.com")) {
+                    Toast.makeText(RegisterActivity.this, "Solo correos gmail", Toast.LENGTH_SHORT).show();
+                } else if (password.length() <6 ){
+                    Toast.makeText(RegisterActivity.this, "Solo contraseñas mayor a 6 caracteres", Toast.LENGTH_SHORT).show();
+                }else {
                     DbUsers dbUsers = new DbUsers(RegisterActivity.this);
                     boolean exists = dbUsers.isUserExists(email, password);
                     if(exists){

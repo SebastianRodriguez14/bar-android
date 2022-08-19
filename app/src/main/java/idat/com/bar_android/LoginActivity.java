@@ -61,6 +61,11 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("Contraseña: " + password);
                 if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     Toast.makeText(LoginActivity.this, "Complete los campos", Toast.LENGTH_SHORT).show();
+                } else if (!email.endsWith("@gmail.com")) {
+                    Toast.makeText(LoginActivity.this, "Solo correos gmail", Toast.LENGTH_SHORT).show();
+                } else if (password.length() <6){
+                    Toast.makeText(LoginActivity.this, "Solo contraseñas mayor a 6 caracteres", Toast.LENGTH_SHORT).show();
+
                 }else {
                     mAuth.signInWithEmailAndPassword(email,password)
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
